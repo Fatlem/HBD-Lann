@@ -1,0 +1,618 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==========================================
+   CONFETTI ANIMATION
+   ========================================== */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f0f;
+    animation: confetti-fall 4s linear infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   BALON TERBANG
+   ========================================== */
+.balloons {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 3rem;
+    animation: float-up 6s ease-in infinite;
+    opacity: 0.8;
+}
+
+.balloon-1 {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.balloon-2 {
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.balloon-3 {
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.balloon-4 {
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+.balloon-5 {
+    left: 90%;
+    animation-delay: 0.5s;
+}
+
+@keyframes float-up {
+    0% {
+        bottom: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateX(20px) rotate(10deg);
+    }
+    100% {
+        bottom: 110%;
+        transform: translateX(-20px) rotate(-10deg);
+    }
+}
+
+/* ==========================================
+   CONTAINER UTAMA
+   ========================================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.main-title .word {
+    display: inline-block;
+    animation: pop-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
+}
+
+.main-title .word:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.main-title .word:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.emoji.bounce {
+    display: inline-block;
+    animation: bounce 1s infinite alternate;
+    animation-delay: 0.6s;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ==========================================
+   KARTU UCAPAN
+   ========================================== */
+.greeting-card {
+    background: white;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slide-up 0.8s ease-out;
+    margin-bottom: 40px;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card-content {
+    text-align: center;
+}
+
+/* ==========================================
+   ANIMASI KUE
+   ========================================== */
+.cake-animation {
+    font-size: 6rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    animation: cake-bounce 2s ease-in-out infinite;
+}
+
+.candle-flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes cake-bounce {
+    0%, 100% {
+        transform: scale(1) rotate(-2deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(0.95);
+    }
+}
+
+/* ==========================================
+   TEKS UCAPAN
+   ========================================== */
+.greeting-text {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 30px;
+    animation: rainbow-text 3s ease-in-out infinite;
+}
+
+@keyframes rainbow-text {
+    0%, 100% {
+        color: #667eea;
+    }
+    25% {
+        color: #764ba2;
+    }
+    50% {
+        color: #f093fb;
+    }
+    75% {
+        color: #4facfe;
+    }
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 25px;
+    animation: fade-in 1s ease-in;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   DAFTAR HARAPAN
+   ========================================== */
+.wish-list {
+    margin: 40px 0;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wish-item {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    animation: slide-in 0.5s ease-out backwards;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.wish-item:hover {
+    transform: translateX(10px) scale(1.02);
+}
+
+.wish-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.wish-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.wish-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.wish-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.wish-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.wish-icon {
+    font-size: 1.5rem;
+}
+
+/* ==========================================
+   TOMBOL KEJUTAN
+   ========================================== */
+.surprise-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.surprise-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================
+   MODAL KEJUTAN
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fade-in 0.3s;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    animation: modal-pop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes modal-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.party-popper {
+    font-size: 5rem;
+    animation: rotate 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes rotate {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.gift-box {
+    font-size: 4rem;
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(5px) rotate(5deg);
+    }
+}
+
+/* ==========================================
+   SECTION LILIN
+   ========================================== */
+.memories-section {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 30px;
+}
+
+.candles-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.candle {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.candle:hover {
+    transform: scale(1.1);
+}
+
+.candle .flame {
+    font-size: 2rem;
+    animation: flicker 0.5s infinite alternate;
+}
+
+.candle .stick {
+    width: 20px;
+    height: 80px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.candle.blown .flame {
+    display: none;
+}
+
+.candle-instruction {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.date {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.stars {
+    font-size: 2rem;
+    animation: twinkle 1s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .greeting-card {
+        padding: 30px 20px;
+    }
+    
+    .cake-animation {
+        font-size: 4rem;
+    }
+    
+    .greeting-text {
+        font-size: 2rem;
+    }
+    
+    .message {
+        font-size: 1rem;
+    }
+    
+    .wish-item {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+    
+    .surprise-btn {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+    
+    .modal-content {
+        padding: 30px;
+        margin: 20px;
+    }
+    
+    .candles-container {
+        gap: 20px;
+    }
+    
+    .balloon {
+        font-size: 2rem;
+    }
+}
